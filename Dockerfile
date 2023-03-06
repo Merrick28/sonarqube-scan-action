@@ -9,6 +9,9 @@ LABEL version="1.2.0" \
       com.github.actions.icon="check" \
       com.github.actions.color="green"
 
+RUN apk update && apk add --no-cache build-base python3-dev  && \
+      pip install --ignore-installed ansible-lint 
+
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
